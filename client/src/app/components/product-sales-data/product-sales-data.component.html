@@ -1,0 +1,21 @@
+<table class="table" *ngIf="productData" class="container">
+  <thead>
+    <tr>
+      <th>ProductId</th>
+      <th>SalesQty</th>
+      <th>SalesRev</th>
+      <th>UnitPrice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{productData.ProductId}}</td>
+      <td>{{productData.SaleQty}}</td>
+      <td>{{productData.SalesRev}}</td>
+      <td>{{productData.UnitPrice}}</td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="!productData">
+  Loading...
+</p>

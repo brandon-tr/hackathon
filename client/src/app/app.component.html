@@ -1,0 +1,15 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <div class="tab">
+    <a routerLink="/MasterData" routerLinkActive="active">
+      <button class="tablinks">Master Data</button>
+    </a>
+    <a routerLink="/Create-Product" routerLinkActive="active">
+      <button class="tablinks">Sales Data</button>
+    </a>
+  </div>
+  <router-outlet></router-outlet>
+</div>

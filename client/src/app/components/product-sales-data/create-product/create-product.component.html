@@ -1,0 +1,39 @@
+<form #createProduct="ngForm" (submit)="CreateProduct(createProduct)">
+  <input type="number" name="productId" required [(ngModel)]="product.ProductId" #productId="ngModel" placeholder="ProductId">
+  <div *ngIf="productId.invalid && (productId.touched || productId.dirty)">
+    <p *ngIf="productId.errors.required" class="alert alert-danger">ProductId is required</p>
+  </div>
+  <input type="string" name="artistName" required [(ngModel)]="product.ArtistName" #artistName="ngModel" placeholder="ArtistName">
+  <div *ngIf="artistName.invalid && (artistName.touched || artistName.dirty)">
+    <p *ngIf="artistName.errors.required" class="alert alert-danger">ArtistName is required</p>
+  </div>
+  <input type="date" name="relDate" required [(ngModel)]="product.RelDate" #relDate="ngModel" placeholder="RelDate">
+  <div *ngIf="relDate.invalid && (relDate.touched || relDate.dirty)">
+    <p *ngIf="relDate.errors.required" class="alert alert-danger">RelDate is required</p>
+  </div>
+  <input type="string" name="title" required [(ngModel)]="product.Title" #title="ngModel" placeholder="Title">
+  <div *ngIf="title.invalid && (title.touched || title.dirty)">
+    <p *ngIf="title.errors.required" class="alert alert-danger">Title is required</p>
+  </div>
+  <input type="text" name="upc" required pattern="^[0-9]*$" minlength="12" maxlength="12" [(ngModel)]="product.UPC" #upc="ngModel"
+    placeholder="UPC">
+  <div *ngIf="upc.invalid && (upc.touched || upc.dirty)">
+    <p *ngIf="upc.errors.required" class="alert alert-danger">UPC is required</p>
+    <p *ngIf="upc.errors.minlength" class="alert alert-danger">Minimum length is 12</p>
+    <p *ngIf="upc.errors.pattern" class="alert alert-danger">Numbers Only</p>
+  </div>
+  <input type="number" name="saleQty" required [(ngModel)]="product.SaleQty" #saleQty="ngModel" placeholder="SaleQty">
+  <div *ngIf="saleQty.invalid && (saleQty.touched || saleQty.dirty)">
+    <p *ngIf="saleQty.errors.required" class="alert alert-danger">SaleQty is required</p>
+  </div>
+  <input type="string" name="salesRev" required [(ngModel)]="product.SalesRev" #salesRev="ngModel" placeholder="SalesRev">
+  <div *ngIf="salesRev.invalid && (salesRev.touched || salesRev.dirty)">
+    <p *ngIf="salesRev.errors.required" class="alert alert-danger">SalesRev is required</p>
+  </div>
+  <input type="number" name="unitPrice" required [(ngModel)]="product.UnitPrice" #unitPrice="ngModel" placeholder="UnitPrice">
+  <div *ngIf="unitPrice.invalid && (unitPrice.touched || unitPrice.dirty)">
+    <p *ngIf="unitPrice.errors.required" class="alert alert-danger">UnitPrice is required</p>
+  </div>
+
+  <input type="submit" value="Submit" [disabled]="createProduct.invalid">
+</form>

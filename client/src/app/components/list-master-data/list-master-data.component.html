@@ -1,0 +1,29 @@
+<table class="table" *ngIf="masterDataRecords" class="container">
+  <thead>
+    <tr>
+      <th>ProductId</th>
+      <th>UPC</th>
+      <th>Title</th>
+      <th>ArtistName</th>
+      <th>RelDate</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let record of masterDataRecords">
+    <tr>
+      <td>{{record.ProductId}}</td>
+      <td>{{record.UPC}}</td>
+      <a routerLink="/SalesData/{{record.ProductId}}" routerLinkActive="active">
+        <td>{{record.Title}}</td>
+      </a>
+      <td>{{record.ArtistName}}</td>
+      <td>{{record.RelDate}}</td>
+      <td>
+        <button (click)="Delete(record.ProductId)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="!masterDataRecords">
+  Loading...
+</p>
